@@ -1,0 +1,5 @@
+# requirements.txt
+Flask==3.0.3
+Flask-RESTful==0.3.10
+python-dotenv==1.0.1
+fly-python-sdk==0.3.4

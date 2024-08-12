@@ -1,0 +1,66 @@
+app = "dwadaisa"
+primary_region = 'lhr'
+
+[experimental]
+  auto_rollback = true
+
+[build]
+  image = 'thuonghai2711/ubuntu-novnc-pulseaudio:20.04'
+
+[env]
+  AUDIO_PORT = '1699'
+  PORT = '10000'
+  SCREEN_DEPTH = '24'
+  SCREEN_HEIGHT = '768'
+  SCREEN_WIDTH = '1024'
+  VNC_PASSWD = 'password'
+  VNC_PORT = '5900'
+  WEBSOCKIFY_PORT = '6900'
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 10000
+  processes = ['app']
+
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 5900
+  processes = ['app']
+
+  [[services.ports]]
+    port = 5900
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 6900
+  processes = ['app']
+
+  [[services.ports]]
+    port = 6900
+
+[[services]]
+  protocol = 'tcp'
+  internal_port = 1690
+  processes = ['app']
+
+  [[services.ports]]
+    port = 1690
+
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 1
