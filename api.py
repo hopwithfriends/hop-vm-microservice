@@ -3,6 +3,7 @@ import os
 import subprocess
 from flask import Flask, request
 from flask_restful import Resource, Api
+from flask_cors import CORS
 from dotenv import load_dotenv
 from fly_python_sdk.fly import Fly
 import re
@@ -11,6 +12,7 @@ import re
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 fly = Fly(os.getenv("FLY_API_TOKEN"))
