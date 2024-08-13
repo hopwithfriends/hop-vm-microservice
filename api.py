@@ -121,8 +121,11 @@ class FlyApp(Resource):
             return {"message": "Failed to delete app", "status": "error"}, 500
         return {"message" : "App deleted", "status": "success" }
 
+    def get(self):
+        return {"message" : "Hello", "status": "success" }
+
 
 api.add_resource(FlyApp, "/api/apps")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8000,debug=True)
