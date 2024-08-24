@@ -93,11 +93,8 @@ class FlyApp(Resource):
             return False
 
     def post(self):
-        print('test')
         app_name = request.json.get("app_name")
         password = request.json.get("password")
-        print(app_name)
-        print(password)
         if not app_name:
             return {"message": "app_name is required", "status": "error"}, 400
 
