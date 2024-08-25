@@ -22,7 +22,6 @@ def update_fly_toml(new_app_name, password):
     with open("fly.toml", "r") as file:
         content = file.read()
 
-    # Claude Powered regex
     # Updates password and appname on toml file
     updated_content = re.sub(
         r'^app\s=\s["\'].*["\']|^\s*VNC_PASSWD\s*=\s*["\'].*["\']',
@@ -58,7 +57,7 @@ def deploy_to_fly(app_name):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         universal_newlines=True,
-    )
+        )
     ipv4_stdout, ipv4_stderr = ipv4_process.communicate()
     results["ipv4"] = (ipv4_stdout, ipv4_stderr, ipv4_process.returncode)
 
@@ -137,7 +136,7 @@ class FlyApp(Resource):
         return {"message": "App deleted", "status": "success"}
 
     def get(self):
-        return {"message": "Hello", "status": "success"}
+        return {"message": "API Running", "status": "success"}
 
 
 api.add_resource(FlyApp, "/api/apps")

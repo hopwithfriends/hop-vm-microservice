@@ -31,9 +31,5 @@
 6. run: `python api.py`
 
 
-
+alternatively you can use the dockerfile
 ---
-
-### API Docs
-
-*In construction...*
