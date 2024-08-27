@@ -1,4 +1,4 @@
-app = "hyuguygyuguyg-a6bc15d0-5b1c-49de-b364-cdaac623c68a"
+app = "myspace-ba9107c9-2100-4d8e-894f-14c61054907f"
 primary_region = 'lhr'
 
 [experimental]
@@ -13,7 +13,7 @@ primary_region = 'lhr'
   SCREEN_DEPTH = '24'
   SCREEN_HEIGHT = '768'
   SCREEN_WIDTH = '1024'
-  VNC_PASSWD = 'password'
+  VNC_PASSWD = '1351'
   VNC_PORT = '5900'
   WEBSOCKIFY_PORT = '6900'
 
